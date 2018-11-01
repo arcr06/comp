@@ -1,16 +1,13 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
 /node_modules
-/.pnp
-.pnp.js
-
+/src
 # testing
-/coverage
 
 # production
-/build
-
+/public
+/build/fire-app.js
+/build/fire.js
+/build/service-worker.js
 # misc
 .DS_Store
 .env.local

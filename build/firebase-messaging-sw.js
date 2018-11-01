@@ -1,8 +1,6 @@
-// importScripts('fire-app.js');
-// importScripts('fire.js');
+importScripts('fire-app.js');
+importScripts('fire.js');
 
-importScripts('https://www.gstatic.com/fire;basejs/3.5.2/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js');
 var config = {
     apiKey: "AIzaSyAF36tTPv2e3s44oebncjDv5gtwcQhv09o",
     authDomain: "lacker-89773.firebaseapp.com",

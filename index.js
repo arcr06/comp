@@ -59,7 +59,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 app.use('/', subscriber);
 app.use('/eventupdates', eventUpdates);
-app.use('/admin/eventupdator', eventUpdator)
+app.use('/admin', eventUpdator)
 
 //ALWYS AT THE END OF THE PAGE
 app.get('*',(req,res) => {

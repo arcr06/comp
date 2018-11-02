@@ -39,11 +39,10 @@ async function getValue() {
     .catch(err => console.log(err));
   }
   getValue();
-
 messaging.onMessage(function(payload) {
   window.location.reload();
   console.log('Message received. ', payload);
-  console.log(`<h1>Messaage recived referesh and close tab to get notiy </h1>`);
+  console.log(`<h1>Messaage recived referesh and  tab to get notiy </h1>`);
 });
 class App extends Component {
   render() {

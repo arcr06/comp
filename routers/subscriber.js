@@ -19,9 +19,11 @@ router.post('/subscribe', (req,res) => {
         // See the MessagingTopicManagementResponse reference documentation
         // for the contents of response.
         console.log('Successfully subscribed to topic:', response);
+        res.send({success: 'done'})
     })
     .catch(function(error) {
         console.log('Error subscribing to topic:', error);
+        res.send({err: 'some err try again'})
     });
 
 }); 
@@ -34,9 +36,11 @@ router.post('/unsubscribe',(req,res) => {
             // See the MessagingTopicManagementResponse reference documentation
             // for the contents of response.
             console.log('Successfully unsubscribed from topic:', response);
+            res.send({success: 'done'})
         })
         .catch(function(error) {
             console.log('Error unsubscribing from topic:', error);
+            res.send({err: 'some err try again'})
         });
 });
 module.exports = router;

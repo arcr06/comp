@@ -1,43 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express();
 
-router.get('/',(req,res) => {
-    const value = [{
-            title: 'IT_MANAGER',
-            desc: 'ROUND 5 PEOPLE',
-            people: [
-                'Person -1',
-                'Person -2',
-                'Person -3',
-                'Person -4'
-            ]
-        },{
-            title: 'CODING',
-            desc: 'ROUND 9 PEOPLE',
-            people: [
-                'Person -1',
-                'Person -4'
-            ]
-        },{
-            title: 'TEMPLE_RUN',
-            desc: 'ROUND 4 PEOPLE',
-            people: [
-                'Person -1',
-                'Person -2',
-                'Person -4'
-            ]
-        },{
-            title: 'WEB_DESIGNING',
-            desc: 'ROUND 4 PEOPLE',
-            people: [
-                'Person -1',
-                'Person -2',
-                'Person -3',
-                'Person -4'
-            ]
-        }
-    ]
-    res.send({value});
-});
+const Event = require('../models/Event.js');
 
+router.get('/',(req,res) => {
+    Event.find()
+        .then(value =>  res.send({value}))
+        .catch(err => console.log(err));
+});
 module.exports = router;

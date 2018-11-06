@@ -1,11 +1,11 @@
-
-module.exports = {
-  sendMsg: function(value) {
+const admin = require('firebase-admin');
+module.exports.sendMsg = function(value) {
+  console.log(value);
     var message = {
       topic: value.topic,
       notification: {
         title: value.title,
-        body: value.body
+        body: value.desc
       },
       android: {  
         ttl: 3600 * 1000,
@@ -32,5 +32,4 @@ module.exports = {
         console.log('Error sending message:', error);
       });
     console.log(value);
-  }
-};
+  };

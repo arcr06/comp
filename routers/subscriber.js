@@ -3,7 +3,6 @@ const router = express();
 const admin = require('firebase-admin');
 const fetch = require('node-fetch');
 
-const User = require('../models/User');
 var serviceAccount = require('./serviceAccountKey.json');
 
 admin.initializeApp({
@@ -27,6 +26,7 @@ router.post('/subscribe', (req,res) => {
     });
 
 }); 
+
 router.post('/unsubscribe',(req,res) => {
     const {type,token} = req.body;
     console.log('______________________________________________');
@@ -36,7 +36,7 @@ router.post('/unsubscribe',(req,res) => {
             // See the MessagingTopicManagementResponse reference documentation
             // for the contents of response.
             console.log('Successfully unsubscribed from topic:', response);
-            res.send({success: 'done'})
+            res.send({success: 'done for unscribe'})
         })
         .catch(function(error) {
             console.log('Error unsubscribing from topic:', error);

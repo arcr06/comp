@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",
@@ -11,12 +12,16 @@
     "firebase-admin": "^6.1.0",
     "firebase-app": "^0.0.1",
     "firebase-messaging": "^1.0.6",
+    "jsonwebtoken": "^8.3.0",
+    "jwt-decode": "^2.2.0",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.8",
-    "node-fetch": "^2.2.0"
+    "node-fetch": "^2.2.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node index",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -14,13 +14,13 @@ const Event = require('./models/Event');
 
 const Admin = require('./admin/adminModel');
 
-mongoose.connect('mongodb://localhost/composite', {useNewUrlParser: true})
-    .then(() =>  console.log('Mongo Connected'))
-    .catch(err => console.log(err));
+// mongoose.connect('mongodb://localhost/composite', {useNewUrlParser: true})
+//     .then(() =>  console.log('Mongo Connected'))
+//     .catch(err => console.log(err));
 
-// const db = require('./config/keys').mongoURL;
-// mongoose.connect(db,{ useNewUrlParser: true })
-//     .then(() => console.log('Mongodb connected...'))
+const db = require('./config/keys').mongoURL;
+mongoose.connect(db,{ useNewUrlParser: true })
+    .then(() => console.log('Mongodb connected...'))
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())

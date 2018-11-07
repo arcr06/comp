@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Provider} from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom'; 
+import { BrowserRouter as Router, Route , Switch} from 'react-router-dom'; 
 import * as firebase from 'firebase/app';
 import 'firebase/messaging';
 import axios from 'axios';
@@ -13,7 +13,7 @@ import {server} from './config/keys';
 import {setEventDetail,setTypes,setToken} from './actions/authAction';
 import '../node_modules/izitoast/dist/css/iziToast.css';
 
-// import NotFound from './components/NotFound';
+import NotFound from './components/NotFound';
 import Starter from './components/Starter';
 import ListSubscription  from './components/ListSubscription';
 import EventDetail  from './components/events/EventDetail';
@@ -54,21 +54,42 @@ export async function getValue() {
   })
 });
 class App extends Component {
+  state = {
+    Login: <NotFound />
+  };
+  componentWillMount() {
+    // if(localStorage.admin) {
+    //   // import('./container/Login')
+    //   //   .then(Login => {
+    //   //     this.setState({Login: Login.default})
+    //   //   })
+    //   //   .catch(err => {
+    //   //     iziToast.error({
+    //   //       title: 'App Crashed!!',
+    //   //       message: 'Error from Login system!.'
+    //   //     });
+    //   //   });
+    // } else {
+    //   Login = NotFound;
+    // }
+  }
   render() {
     return (
       <Provider store={store}>
       <div>
         <Router>
           <div>
-            <Route exact path="/" component={Starter}></Route> 
-            <Route exact path="/events" component={ListSubscription}></Route>
-            <Route exact path="/eventDetail" component={EventDetail}></Route>
-            <Route exact path="/admin/wp-login" component={Login}></Route>
-            <Route exact path="/admin/dashboard" component={Event}></Route>
-            <Route exact path="/admin/dashboard/create-event" component={AddEvent}></Route>
-            <Route exact path="/admin/dashboard/delete-event" component={DeleteEvent}></Route>
-            <Route exact path="/admin/dashboard/update-event" component={UpdateEvent}></Route>
-            {/* <Route exact path="*" component={NotFound}></Route> */}
+            <Switch>
+              <Route exact path="/" component={Starter}></Route> 
+              <Route exact path="/subscribe" component={ListSubscription}></Route>
+              <Route exact path="/events" component={EventDetail}></Route>
+              <Route exact path="/admin/login" component={Login}></Route>
+              <Route exact path="/admin/dashboard" component={Event}></Route>
+              <Route exact path="/admin/dashboard/create-event" component={AddEvent}></Route>
+              <Route exact path="/admin/dashboard/delete-event" component={DeleteEvent}></Route>
+              <Route exact path="/admin/dashboard/update-event" component={UpdateEvent}></Route>
+              <Route path='*' component={NotFound} />
+            </Switch>
           </div>
         </Router>
       </div>

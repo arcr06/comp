@@ -26,7 +26,7 @@ class Starter extends Component {
   }
   showPermission(e) {
     this.setState({loading: true})
-    messaging.usePublicVapidKey("BMRMW2uN6M8ZR7WdFHl-N-3u7IU-X2t-ZvgFuDiMC6DrpD2eaL0TQyg6hGiTg9TWuMVGBViFcahKuISZ2ZjHRUU");
+    messaging.usePublicVapidKey("BD2johvT-Yk43FrZ0BE3Dea87_-FjgYatli_Giw1Tfy1ERs0d3yMBLzl3NuaXoEoSJulvcT1qcBCGTXLyvWmhdA");
     messaging.requestPermission()
       .then(() => {
         return messaging.getToken()

@@ -18,7 +18,7 @@ import '../node_modules/animate.css/animate.min.css';
 import NotFound from './components/NotFound';
 import Starter from './components/Starter';
 import ListSubscription  from './components/ListSubscription';
-import EventDetail  from './components/events/EventDetail';
+// import EventDetail  from './components/events/EventDetail';
 import Login from './container/Login';
 import Event from './container/Updator/Event';
 import ViewEvent from './container/Updator/ViewEvent';
@@ -69,7 +69,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Starter}></Route> 
               <Route exact path="/subscribe" component={ListSubscription}></Route>
-              <Route exact path="/events" component={EventDetail}></Route>
+              {/* <Route exact path="/events" component={EventDetail}></Route> */}
               <Route exact path="/admin/login" component={Login}></Route>
               <Route exact path="/admin/dashboard" component={Event}></Route>
               <Route exact path="/admin/dashboard/view-event" component={ViewEvent}></Route>

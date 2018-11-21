@@ -46,17 +46,19 @@ app.use(express.static(path.join(__dirname, "build")));
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-app.use('/zxcvbnm/', subscriber);
-app.use('/zxcvbnm/eventupdates', eventUpdates);
-app.use('/zxcvbnm/admin', eventUpdator)
+app.use('/', subscriber);
+app.use('/eventupdates', eventUpdates);
+app.use('/admin', eventUpdator)
 
 //ALWYS AT THE END OF THE PAGE
+app.get('firebase-messaging-sw.js',(req,res) => {
+    res.sendFile(path.join(__dirname,'/build/firebase-messaging-sw.js'));
+});
 app.get('*',(req,res) => {
     res.sendFile(path.join(__dirname,'/build/index.html'));
 });
-
   
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`App started in Port:${port}`);
 });

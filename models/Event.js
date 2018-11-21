@@ -6,14 +6,26 @@ const EventSchema = new Schema({
                 type: String,
                 required: true
             },
+            round: {
+                type: Number
+            },
             desc: {
-                type: String,
-                required: true
+                type: String 
             },
-            people: {
-                type: Array,
-                required: true
-            },
+            people: [
+                {
+                    name: {
+                        type: String 
+                    },
+                    status: {
+                        type: Boolean,
+                        default: false
+                    },
+                    round: {
+                        type: Number
+                    }
+                }
+            ],
             date: {
                 type: Date,
                 default: Date.now

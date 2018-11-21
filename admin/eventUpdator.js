@@ -22,52 +22,67 @@ router.post('/login', (req, res) => {
                     .then(isMatch => {
                         if(isMatch) {
                             const payload = {id: user.id, username: user.username}
-                            jwt.sign(payload,keys.secretKey,{expiresIn: 36000000}, (err,token) => {
+                            jwt.sign(payload,keys.secretKey,{expiresIn: 3600}, (err,token) => {
                                 res.json({success: true, auth: 'zxcvbnm', token: 'Bearer ' + token})
                             });
                         } else {
                             res.status(400).json({data: 'Password is incorrect'});
                         }
                     })
-                    .catch(err => res.status(400).json({data: 'something went wrong try again'}));
+                    .catch(err => res.status(400).json({data: 'Something went wrong try again'}));
             }
         }))
         .catch(err => {
-            res.status(500).json({err: 'try again'})
-            console.log(err);
+            res.status(500).json({data: 'Try again'})
         });
 });
 
 router.post('/update',passport.authenticate('jwt' ,{session: false}), (req,res) => {
-    
- //update syntax yet to be added
- const msg = {
-    title: 'IT_MANAGER',
-    topic: 'IT_MANAGER',
-    desc: 'SIMPLE NOTIFICATION'
- }
- foo.sendMsg(msg);
+    const data = {
+        title: req.body.title,
+        desc: req.body.desc,
+        people: req.body.people,
+        round: req.body.round
+    }
+    Event.findOneAndUpdate({title: req.body.title}, {$set: {...data}}, {new: true}, (err,doc) => {
+        if(err) {
+            res.status(400).send({data: 'Mongo db err'})
+        } else {
+            const msg = {
+                title: req.body.title,
+                topic: req.body.title,
+                desc: req.body.desc
+            } 
+            foo.sendMsg(msg);
+            res.send({data: `Sucessfully Updated!. Push has been been sen for ${msg.title} subscribers`})
+        }
+    })
 });
  
 router.post('/delete',passport.authenticate('jwt' ,{session: false}), (req,res) => {
     const type = req.body.type;
     Event.findOneAndDelete({title: type})
-        .then(() => res.json({success: 'Removed successfully'}))
-        .catch(err => console.log(err));
-
+        .then(() => {
+            res.json({success: 'Removed successfully'})
+        })
+        .catch(err => res.status(400).send({data: 'Mongo err Contact admin for this error'}));
 });
 router.post('/create', passport.authenticate('jwt', {session: false}),(req,res) => {
     const title = req.body.title;
     const desc = req.body.desc;
     const people = req.body.people;
+    const round = req.body.round;
     const newEvent = new Event({
         title,
         desc,
-        people
+        people,
+        round
     })
     newEvent.save()
-        .then(data =>  res.send({success: 'succesfullty saved'}))
-        .catch(err => res.status(400).send({err: 'didnt save some sevre problem',check: err}))
+        .then(data =>  {
+            res.send({success: 'succesfullty saved'})
+        })
+        .catch(err => res.status(400).send({data: 'didnt save some sevre problem',check: err}))
 });
 module.exports = router;
 

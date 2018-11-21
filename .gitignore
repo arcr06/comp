@@ -1,13 +1,11 @@
 
 /node_modules
-/src
 # testing
 
 # production
 /public
 /build/fire-app.js
-/build/fire.js
-/build/service-worker.js
+
 # misc
 .DS_Store
 .env.local

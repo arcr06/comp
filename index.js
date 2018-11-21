@@ -15,28 +15,28 @@ const Event = require('./models/Event');
 const Admin = require('./admin/adminModel');
 
 
-// mongoose.connect('mongodb://localhost/composite', {useNewUrlParser: true})
-//     .then(() =>  console.log('Mongo Connected'))
-//     .catch(err => console.log(err));
+mongoose.connect('mongodb://localhost/composite', {useNewUrlParser: true})
+    .then(() =>  console.log('Mongo Connected'))
+    .catch(err => console.log(err));
 
-const db = require('./config/keys').mongoURL;
-mongoose.connect(db,{ useNewUrlParser: true })
-    .then(() => console.log('Mongodb connected...'))
+// const db = require('./config/keys').mongoURL;
+// mongoose.connect(db,{ useNewUrlParser: true })
+//     .then(() => console.log('Mongodb connected...'))
 
 
-    const newAdmin = new Admin({
-        username: 'genSalt10',
-        password: '.HashedPassword.4321.'
-    });
-    bcrypt.genSalt(10, (err,salt) => {
-        bcrypt.hash(newAdmin.password, salt,(err, hash) => {
-            if(err) throw err;
-            newAdmin.password = hash;
-            newAdmin.save()  
-            .then(user => res.json(user))
-            .catch((err) => console.log(err));
-        });
-    });
+    // const newAdmin = new Admin({
+    //     username: 'genSalt10',
+    //     password: '.HashedPassword.4321.'
+    // });
+    // bcrypt.genSalt(10, (err,salt) => {
+    //     bcrypt.hash(newAdmin.password, salt,(err, hash) => {
+    //         if(err) throw err;
+    //         newAdmin.password = hash;
+    //         newAdmin.save()  
+    //         .then(user => res.json(user))
+    //         .catch((err) => console.log(err));
+    //     });
+    // });
     
 
 app.use(bodyParser.urlencoded({extended: true}));

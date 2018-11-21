@@ -1,0 +1,360 @@
+$color-dark-blue: #2B3243;
+$color-blue: rgb(83,109,254);
+.spacer {
+    margin: 2.6rem;
+}
+.flex-h {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+.flex-v {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+.input,
+.input-small {
+    width: 40rem;
+    height: 4rem;
+    border: none;
+    text-indent: 1rem;
+    font-size: 1.6rem;  
+    margin: 2rem 0rem;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 1px 5px  20px rgba(17, 8, 32, 0.274);
+}
+.input-grp {
+    width: 40rem;
+}
+.input-one {
+    width: 34rem;
+}
+.input-one-list {
+    width: 30rem;
+    text-align: center;
+}
+.input-small {
+    width: 20rem;
+    text-transform: uppercase;
+    margin: 0 1rem;
+}
+.list-content {
+    font-size: 1.6rem;
+    margin: 0;
+}
+.btn {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+    &:hover {
+            transform: translateY(-3px);
+            cursor: pointer;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    }
+    &:active {
+            transform: translateY(-1px);
+            cursor: pointer;
+    }
+}
+.btn-back {
+    background: $color-dark-blue;
+    color: white;
+    border-radius: 0px;
+    font-size: 1.6rem;
+    position: absolute;
+    margin: 0;
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+.btn-two {
+    width: 6rem;
+    background: $color-blue;
+    height: 4rem;
+    color: white;
+    font-size: 1.4rem;
+    border-radius: 2px;
+    border: none;
+}
+.btn-submit {
+    font-size: 1.6rem;
+    height: 4rem;
+    width: 40rem;
+    background: $color-blue;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+.white {
+    background: white;
+}
+.mg-2 {
+    margin: 2rem;
+}
+.Admin {
+    width: 100%;
+    height: 100vh;
+    &-active-grp {
+        width: 300px;
+        height: 100vh;
+        background: $color-dark-blue;
+    }
+    &-active-head {
+        color: white;
+        background: $color-blue;
+        text-align: center;
+        padding: 2.5rem;
+    }
+    &-active-div {
+        justify-content: space-between;
+        width: 100%;
+        height: 5rem;
+        border-bottom: 1px solid $color-blue;
+    }
+    &-active-btn {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 1.4rem;
+        margin-left: 1.5rem; 
+    }
+    &-active-icon {
+        background: white;
+        width: 2rem;
+        border-radius: 5rem;
+        height: 1rem;
+        margin-right: 1.5rem;
+    }
+}
+.Event {
+    width: 100%;
+    height: 100vh;
+    flex-basis: 1;
+    justify-content: space-between;
+    &-btn-control {
+        width: 20rem;
+        padding: 1rem 0;
+        border: none;
+        margin: .5rem;
+        background: $color-dark-blue;
+        color: white;
+        font-size: 1.8rem;
+        &:hover {
+            border-bottom: 2px solid $color-blue;
+        }
+    }
+    &-simple-block {
+        height: 10.8vh;
+        margin: 0;
+        width: 100%;
+        background: $color-blue;
+        &-head {
+            color: white;
+            font-size: 4rem;    
+            width: 80%;
+        }
+        &-img {
+            width: 3rem;
+            height: 3rem;
+        }
+        &-btn {
+            padding: .6rem 2rem;
+            margin-left: 1rem;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            background: $color-dark-blue;
+            border: none;
+        }
+    }
+}
+.Shade {
+    width: 100%;
+    height: 14vh;
+    background: $color-blue;
+    padding: 0;
+    margin: 0;
+}
+.List {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &-box {    
+        justify-content: space-between;
+        width: 20%;
+        margin: 1rem;
+        height: 5rem;
+        background: $color-blue;
+        &-head-1 {
+            color: white;
+            margin-left: 2rem;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+        &-head-2 {
+            color: white;
+            margin-right: 2rem;
+            font-weight: 500;
+            font-size: 1.6rem;
+        }
+    }
+}
+.Update {
+    width: 100%;
+    height: auto;
+    background: rgb(43, 50, 67);
+    justify-content: space-evenly;
+    padding: 4rem 0;
+    
+    &-one {
+        width: 40%;
+        height: auto;
+        &-head {
+            text-align: left;
+            color: white;
+            font-weight: 900;
+        }
+    }   
+    &-two {
+        border-left: 1px solid white;
+        width: 60%;
+        height: auto;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        &-list-grp {
+            width: 40%;
+            margin:  1rem 3rem;
+            justify-content: space-between;
+            background: white;
+
+            &-one {
+                margin-left: 4rem;
+            }
+        }
+    }
+}
+.Add {
+    justify-content: space-evenly;
+    background: $color-dark-blue;
+    align-items: flex-start;
+
+    &-content-1 {
+        width: 40%;
+        &-head {
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            background: $color-blue;
+            width: 100%;
+            padding: 2rem 0;
+        }
+        &-form {
+            padding: 4rem 0;
+        }
+    }
+    &-content-2 {
+        width: 60%;
+        justify-content: flex-start;
+        border-left: 2px solid white;
+        &-flex {
+            margin-top: 5rem;
+        }
+        &-head {
+            background: white;
+            width: 88%;
+            margin: .5rem auto;
+            padding: 1rem;
+            justify-content: space-between;
+            font-size: 1.8rem;
+
+            &-sub-title {
+                font-size: 2rem;
+                font-weight: 900;
+            }
+            &-sub-content {
+                width: 80%;
+                border-left: 2px solid $color-blue;
+                text-indent: 1rem;
+            }
+        }
+        &-list {
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            &-grp {
+                width: 40%;
+                margin: .5rem 4rem;
+                background: white;
+                justify-content: space-between;
+                &-one {
+                    margin-left: 3rem;
+                }
+            }
+        }
+    }
+}
+.Slider {
+    background-image: url('../img/astronomy-beautiful-clouds-355465.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+
+    &-content {
+        width: 100%; 
+        height: 80vh;
+        &-head {
+            color: white;  
+            font-size: 5rem;
+        }
+        &-desc {
+            color: white;
+            background: rgba(255, 0, 0, 0.603);
+            width: 80%;
+            text-align: center;
+            padding: 1rem;
+            font-size: 2rem;
+        }
+    }
+    &-list-grp {
+        justify-content: flex-start;
+        width: 80%;
+        height: auto;   
+        flex-wrap: wrap;
+        &-content {
+            background: rgba(0, 128, 0, 0.904);
+            width: 24%;
+            padding: 1.5rem 0;
+            margin: .5rem;
+            text-align: center;
+            color: white;
+            font-size: 1.6rem;
+        }
+    }
+}
+.Switch {
+    z-index: 1000;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translate(-50%,-1%);
+    &-grp {
+        justify-content: center;
+        width: 5rem;
+        height: 5rem;
+
+        &-content {
+            margin: 0 1rem;
+            background: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 20rem;
+        }
+    }
+}

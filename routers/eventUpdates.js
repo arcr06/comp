@@ -6,7 +6,7 @@ const Event = require('../models/Event.js');
 
 router.get('/',(req,res) => {
     Event.find()
-        .then(value =>  res.send({value}))
+        .then(value => res.send({value}))
         .catch(err => console.log(err));
 });
 module.exports = router;
